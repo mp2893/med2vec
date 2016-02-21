@@ -6,6 +6,7 @@ Med2Vec is a multi-layer representation learning tool for learning code represen
 ####Relevant Publications
 
 Med2Vec implements an algorithm introduced in the following:
+
     Multi-layer Representation Learning for Medical Concepts
 	Edward Choi, Mohammad Taha Bahadori, Elizabeth Searles, Catherine Coffey, Jimeng Sun
 	arXiv preprint arXiv:1602.05568
