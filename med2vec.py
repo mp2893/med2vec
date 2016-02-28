@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 import sys, random
 import numpy as np
 import cPickle as pickle
