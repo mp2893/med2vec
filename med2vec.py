@@ -1,3 +1,8 @@
+#################################################################
+# Code written by Edward Choi (mp2893@gatech.edu)
+# For bug report, please contact author using the email address
+#################################################################
+
 import sys, random
 import numpy as np
 import cPickle as pickle
