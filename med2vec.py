@@ -245,7 +245,7 @@ def train_med2vec(seqFile='seqFile.txt',
 
 	print 'loading data'
 	seqs, demos, labels = load_data(seqFile, demoFile, labelFile)
-	n_batches = (len(seqs) / batchSize) + 1
+	n_batches = int(np.ceil(float(len(seqs)) / float(batchSize)))
 
 	print 'training start'
 	for epoch in xrange(maxEpochs):
@@ -279,11 +279,10 @@ def train_med2vec(seqFile='seqFile.txt',
 		tempParams = unzip(tparams)
 		np.savez_compressed(outFile + '.' + str(epoch), **tempParams)
 
-if __name__ == '__main__':
-	parser = argparse.ArgumentParser()
-	parser.add_argument('seq_file', type=str, metavar='visit_file', help='The path to the Pickled file containing visit information of patients')
-	parser.add_argument('n_input_codes', type=int, help='The number of unique input medical codes')
-	parser.add_argument('out_file', metavar='out_file', help='The path to the output models. The models will be saved after every epoch')
+def parse_arguments(parser):
+	parser.add_argument('seq_file', type=str, metavar='<visit_file>', help='The path to the Pickled file containing visit information of patients')
+	parser.add_argument('n_input_codes', type=int, metavar='<n_input_codes>', help='The number of unique input medical codes')
+	parser.add_argument('out_file', type=str, metavar='<out_file>', help='The path to the output models. The models will be saved after every epoch')
 	parser.add_argument('--label_file', type=str, default='', help='The path to the Pickled file containing grouped visit information of patients. If you are not using a grouped output, do not use this option')
 	parser.add_argument('--n_output_codes', type=int, default=0, help='The number of unique output medical codes (the number of unique grouped codes). If you are not using a grouped output, do not use this option')
 	parser.add_argument('--demo_file', type=str, default='', help='The path to the Pickled file containing demographic information of patients. If you are not using patient demographic information, do not use this option')
@@ -297,6 +296,10 @@ if __name__ == '__main__':
 	parser.add_argument('--log_eps', type=float, default=1e-8, help='A small value to prevent log(0) (default value: 1e-8)')
 	parser.add_argument('--verbose', action='store_true', help='Print output after every 10 mini-batches')
 	args = parser.parse_args()
-	print args
+	return args
+
+if __name__ == '__main__':
+	parser = argparse.ArgumentParser()
+	args = parse_arguments(parser)
 
 	train_med2vec(seqFile=args.seq_file, demoFile=args.demo_file, labelFile=args.label_file, outFile=args.out_file, numXcodes=args.n_input_codes, numYcodes=args.n_output_codes, embDimSize=args.cr_size, hiddenDimSize=args.vr_size, batchSize=args.batch_size, maxEpochs=args.n_epoch, L2_reg=args.L2_reg, demoSize=args.demo_size, windowSize=args.window_size, logEps=args.log_eps, verbose=args.verbose)
