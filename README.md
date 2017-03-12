@@ -22,6 +22,7 @@ Med2Vec implements an algorithm introduced in the following:
 3. Download/clone the Med2Vec code  
 
 **STEP 2: Fast way to test Med2Vec with MIMIC-III**
+
 This step describes how to run, with minimum number of steps, Med2Vec using MIMIC-III. 
 
 0. You will first need to request access for [MIMIC-III](https://mimic.physionet.org/gettingstarted/access/), a publicly avaiable electronic health records collected from ICU patients over 11 years. 
@@ -42,7 +43,7 @@ You can also use ".3digitICD9.seqs" to begin with, if you interested in learning
 
 3. As suggested in STEP 4, you might want to adjust the hyper-parameters. 
 I recommend decreasing the `--batch_size` to 100 or so, since the default value 1,000 is too big considering the small number of patients in MIMIC-III datasets. 
-There are only 7500 patients who made more than a single visit, and most of them have only two visits.
+There are only 7,500 patients who made more than a single visit, and most of them have only two visits.
 
 **STEP 3: Preparing training data**  
 
