@@ -6,7 +6,7 @@ Med2Vec is a multi-layer representation learning tool for learning code represen
 [![Med2Vec Coordinate-wise Interpretation Demo](http://www.cc.gatech.edu/~echoi48/images/med2vec_interpret.png)](https://youtu.be/UR_f2rmMJkk?t=2m34s "Med2Vec Coordinate-wise Interpretation Demo - Click to Watch!")
 Med2Vec embeddings not only help improve predictive performance of healthcare applications, but also enable the interpretation of the learned code representations in a coodinate-wise manner. You can see that these six coordinates (chosen by their strong correlation with patient severity level) of the code representation space demonstrate medically coherent groups of symptoms (diagnoses, medications, and procedures). 
 
-####Relevant Publications
+#### Relevant Publications
 
 Med2Vec implements an algorithm introduced in the following [paper](http://www.kdd.org/kdd2016/subtopic/view/multi-layer-representation-learning-for-medical-concepts):
 
@@ -15,7 +15,7 @@ Med2Vec implements an algorithm introduced in the following [paper](http://www.k
 	Michael Thompson, James Bost, Javier Tejedor-Sojo, Jimeng Sun
 	KDD 2016, pp.1495-1504
 
-####Running Med2Vec
+#### Running Med2Vec
 
 **STEP 1: Installation**  
 
