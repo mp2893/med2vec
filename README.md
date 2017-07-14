@@ -61,6 +61,7 @@ This list of list needs to be pickled using cPickle. We will refer to this file 
 
 2. The total number of unique medical codes is required to run Med2Vec. 
 For example, if the dataset is using 14,000 diagnosis codes and 11,000 procedure codes, the total number is 25,000. 
+Note that using a huge number of codes could lead to memory problems, depending on your RAM/VRAM (thanks for the tip [tRosenflanz](https://github.com/tRosenflanz))
 
 3. For a faster training, you can provide an additional dataset, which is simply the same dataset in step 1, but with grouped medical codes. 
 For example, ICD9 diagnosis codes can be grouped into 283 categories by using [CCS](https://www.hcup-us.ahrq.gov/toolssoftware/ccs/ccs.jsp) groupers. 
